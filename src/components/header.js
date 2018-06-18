@@ -2,11 +2,13 @@ import React from 'react'
 import Link from 'gatsby-link'
 
 const Header = () => (
-  <header>
+  <header className="fullHeader">
     <div className="blocLogo">
-      <Link to="">
+      {/*Logo*/}
+      <Link to="/">
         <h1>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 274.2 374.91"><title>Asset 1</title>
+          {/*TODO optimize logo svg*/}
+          <svg xmlns="http://www.w3.org/2000/svg" width="274" height="374" viewBox="0 0 274.2 374.91"><title>Asset 1</title>
             <g id="Layer_2" data-name="Layer 2">
               <g id="Layer_1-2" data-name="Layer 1">
                 <polygon points="111.25 0 80.09 0 1 124.97 32.16 124.97 111.25 0"/>
@@ -20,11 +22,13 @@ const Header = () => (
         </h1>
       </Link>
       <hr/>
-      <span className="Menu__Tagline-jijbTQ fzVYYD"><p>Product designer</p><p>Front-end developer</p><p>Full-stack UX design specialist</p></span>
+
+      {/*desc*/}
+      <span className="desc"><p>Front-end developer</p><p>Full-stack design specialist</p></span>
     </div>
     <nav>
       <ul>
-        <li><Link to="" style={{fontWeight: 800, color: '#4c4c4c'}}>Accueil</Link></li>
+        <li><Link to="">Accueil</Link></li>
         <li><Link to="">Services</Link></li>
         <li><Link to="">Clients</Link></li>
         <li><Link to="">Portfolio</Link></li>
@@ -33,17 +37,17 @@ const Header = () => (
         <li><Link to="">Contact</Link></li>
       </ul>
     </nav>
-    <div className="bottom">
-      <div className="Copy">
-        <p className="txt4">For business enquiries or casual chatter about design, development, startup life, remote
+    <div className="sousMenu">
+      <div className="sousMenuDiv">
+        <p className="PhraseToContact">For business enquiries or casual chatter about design, development, startup life, remote
           work, digital nomadism and what not—do drop me a line. I love emails.</p>
         <hr />
-          <Link className="email" to="">
-            <span style={{direction: "rtl", unicodeBidi: 'bidi-override'}}>moc.liamg@fecuoy1uoyuoy</span>
-          </Link>
+        <Link className="email" to="">
+          <span style={{direction: "rtl", unicodeBidi: 'bidi-override'}}>moc.liamg@fecuoy1uoyuoy</span>
+        </Link>
       </div>
     </div>
   </header>
-)
+);
 
 export default Header

@@ -1,13 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-
+import MobHeader from '../components/MobHeader'
 import Header from '../components/header'
 import './index.scss'
 import './main.sass'
 
 const Layout = ({ children, data }) => (
-  <div className="grid">
+  <div className="root">
     <Helmet
       title={data.site.siteMetadata.title}
       meta={[
@@ -15,10 +15,9 @@ const Layout = ({ children, data }) => (
         { name: 'keywords', content: 'sample, something' },
       ]}
     />
-    <Header siteTitle={data.site.siteMetadata.title} />
-    <div
-        className="center"
-    >
+    <MobHeader />
+    <div className="layout">
+      <Header siteTitle={data.site.siteMetadata.title} />
       {children()}
     </div>
   </div>
