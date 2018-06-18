@@ -9,7 +9,7 @@ const MobHeader = () => (
     <div>
       <Link to="/">
         <h1 className="">
-          <svg xmlns="http://www.w3.org/2000/svg" width="274" height="37" viewBox="0 0 274.2 374.91"><title>Asset 1</title>
+          <svg xmlns="http://www.w3.org/2000/svg" height="37" viewBox="0 0 274.2 374.91"><title>Asset 1</title>
             <g id="Layer_2" data-name="Layer 2">
               <g id="Layer_1-2" data-name="Layer 1">
                 <polygon points="111.25 0 80.09 0 1 124.97 32.16 124.97 111.25 0"/>
