@@ -39,8 +39,7 @@ const Header = () => (
     </nav>
     <div className="sousMenu">
       <div className="sousMenuDiv">
-        <p className="PhraseToContact">For business enquiries or casual chatter about design, development, startup life, remote
-          work, digital nomadism and what not—do drop me a line. I love emails.</p>
+        <p className="PhraseToContact">For business enquiries or casual chatter about design, development, startup life, remote.</p>
         <hr />
         <Link className="email" to="">
           <span style={{direction: "rtl", unicodeBidi: 'bidi-override'}}>moc.liamg@fecuoy1uoyuoy</span>

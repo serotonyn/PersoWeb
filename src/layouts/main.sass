@@ -5,6 +5,8 @@ $light: #65BEC2
 $medium: #6799B2
 $dark: #576D8E
 
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro')
+
 *
   box-sizing: border-box
   font-family: Lato, sans-serif
@@ -33,9 +35,10 @@ body, body>div, html
   bottom: 0
   display: flex
   flex-direction: column
-  padding: 24px
+  padding: 22px
   @media screen and (min-width: 320px)
-    padding: calc(24px + ((16 * (100vw - 320px)) / 1120))
+    padding: calc(22px + ((16 * (100vw - 320px)) / 1120))
+    //padding: 0px
   @media (min-width: 768px)
     display: flex
     width: 310px
@@ -66,6 +69,9 @@ body, body>div, html
         margin: 0
         @media (min-width: 768px)
           max-width: 1em
+    & p
+      //background: red
+      margin-bottom: 0.2em
 
     span
       font-size: 12px
@@ -114,17 +120,22 @@ body, body>div, html
             color: $noir
             border-color: $noir
   .sousMenu
-    //background: teal
     display: flex
     flex-direction: column
     flex-basis: 25%
     justify-content: flex-end
-    font-size: 12px
-    line-height: 1.6em
-    font-family: Lato, sans-serif
-    letter-spacing: 0.02em
-    @include police()
+    & p
+      font-size: 12px
+      line-height: 1.4em
+      font-family: Lato, sans-serif
+      letter-spacing: 0.02em
+      margin-bottom: 2.8em
+      @include police()
+      @media screen and ( max-height: 785px)
+        margin-bottom: 1.8em
     .email
+      font-size: 14px
+      //background: blue
       text-decoration: none
       color: currentColor
 
@@ -196,11 +207,10 @@ body, body>div, html
             color: inherit
             @media screen and (min-width: 320px)
               font-size: calc(14px + ((2 * (100vw - 320px)) / 1120))
-
           h1
             line-height: 1.2em
             display: block
-            font-family: "Source Sans Pro", monospace
+            font-family: "Source Sans Pro", Arial
             font-weight: 500
             //letter-spacing: -0.02em
             //word-spacing: -0.18em
@@ -208,8 +218,9 @@ body, body>div, html
             @media screen and (min-width: 320px)
               font-size: calc(24px + ((16 * (100vw - 320px)) / 1120))
           .txt
-            font-family: Forum, sans-serif
+            font-family: "Source Code Pro", sans-serif
             font-size: calc(18px + ((4 * (100vw - 320px)) / 1120))
+            color: $noir
 
         .actionBar
           a
@@ -217,7 +228,7 @@ body, body>div, html
             text-decoration: none
             margin: 10px
             color: currentColor
-            font-family: "Source Sans Pro", sans-serif
+            font-family: "Source Sans Pro", Arial
             font-size: 2em
             //letter-spacing: -0.05em
             //word-spacing: -0.38em
@@ -248,3 +259,9 @@ body, body>div, html
 .MobMenuText
   text-decoration: none
   color: currentColor
+
+
+hr
+  @media screen and (max-height: 785px)
+    //background: red
+    display: none
