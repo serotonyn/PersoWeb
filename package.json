@@ -9,7 +9,8 @@
     "gatsby-plugin-favicon": "^2.1.1",
     "gatsby-plugin-react-helmet": "^2.0.10",
     "gatsby-plugin-sass": "^1.0.26",
-    "react-helmet": "^5.2.0"
+    "react-helmet": "^5.2.0",
+    "react-scrolllock": "^3.0.1"
   },
   "keywords": [
     "gatsby"
@@ -18,6 +19,7 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
+    "dev-m": "gatsby develop -H 0.0.0.0 -p 8000",
     "format": "prettier --write 'src/**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

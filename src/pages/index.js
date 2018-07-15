@@ -1,4 +1,5 @@
 import React from 'react'
+// import Splash from '../components/Splash'
 // import Link from 'gatsby-link'
 
 const IndexPage = () => (
@@ -15,20 +16,17 @@ const IndexPage = () => (
             </h1>
             <br />
             <p className="txt txt1">
-              I’m a product designer and front-end developer—an overall
-              full-stack user experience design specialist.
+              Je conçois et réalise des sites rapides, utiles et agréables à utiliser pour lesquels j’assure la maintenance ainsi que les mises à jour.
             </p>
             <br />
             <p className="txt txt2">
-              With a broad range of skills and expertise in all user experience
-              design related fields, I’m here to help you successfully launch
-              your next product.
+              Avec des compétences solides en programmation, chaque création de site que je réalise est unique, au design conçu sur mesure et codé manuellement pour être au plus proche de vos attentes.
             </p>
           </div>
           <br />
           <div className="actionBar">
-            <a href="">See my work</a>
-            <a href="">Get in touch</a>
+            <a href="">Voir mes réalisations</a>
+            <a href="">Me contacter</a>
           </div>
         </div>
       </div>

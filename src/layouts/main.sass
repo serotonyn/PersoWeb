@@ -1,31 +1,30 @@
-$noir: #4F4F4F
-$grey: #e9eae9
+$noir: #444B53
+//$grey: #e9eae9
+$grey: #e8e8e8
 $greySombre: #868686
 $light: #65BEC2
 $medium: #6799B2
 $dark: #576D8E
 
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro')
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro|Ubuntu|Dosis')
 
 *
   box-sizing: border-box
-  font-family: Lato, sans-serif
+  font-family: 'Dosis', sans-serif
 
 @mixin police()
   @media screen and (min-width: 320px)
-    font-size: calc(12px + ((2 * (100vw - 320px)) / 1120))
+    font-size: calc(15px + ((2 * (100vw - 320px)) / 1120))
+    letter-spacing: 0.5px
+
 
 body, body>div, html
   background: #fff
   height: 100%
   min-height: 100%
-////display: flex
-////flex-direction: row
-//
 .layout
   height: 100%
   width: 100%
-//
 .fullHeader
   background: $grey
   width: 33%
@@ -36,9 +35,9 @@ body, body>div, html
   display: flex
   flex-direction: column
   padding: 22px
+  z-index: 1
   @media screen and (min-width: 320px)
     padding: calc(22px + ((16 * (100vw - 320px)) / 1120))
-    //padding: 0px
   @media (min-width: 768px)
     display: flex
     width: 310px
@@ -51,10 +50,7 @@ body, body>div, html
     display: none
 
   & .blocLogo
-    //background: #65BEC2
     display: flex
-    //justify-content: center
-    //align-items: last-baseline
     flex-direction: column
     flex-basis: 25%
     & a h1
@@ -64,21 +60,22 @@ body, body>div, html
         height: 37px
         width: 208px
         display: inline-block
-        fill: $noir
+        //fill: $noir
         max-width: 1em
         margin: 0
         @media (min-width: 768px)
           max-width: 1em
     & p
-      //background: red
       margin-bottom: 0.2em
 
     span
-      font-size: 12px
+      //font-size: 12px
       line-height: 1.6em
       display: block
       font-weight: 400
-      @include police()
+      p
+        @include police()
+        color: $dark
 
 
   nav
@@ -124,13 +121,14 @@ body, body>div, html
     flex-direction: column
     flex-basis: 25%
     justify-content: flex-end
-    & p
-      font-size: 12px
+    p
+      //font-size: 20px
       line-height: 1.4em
-      font-family: Lato, sans-serif
+      //font-family: Lato, sans-serif
       letter-spacing: 0.02em
       margin-bottom: 2.8em
       @include police()
+      color: $dark
       @media screen and ( max-height: 785px)
         margin-bottom: 1.8em
     .email
@@ -138,6 +136,7 @@ body, body>div, html
       //background: blue
       text-decoration: none
       color: currentColor
+      color: $light
 
 
 
@@ -176,7 +175,7 @@ body, body>div, html
       display: flex
       height: 100vh
     @media screen and (max-width: 768px)
-      padding-top: 160px
+      padding-top: 120px
     .mainChild
       width: 100%
       margin: auto
@@ -198,6 +197,8 @@ body, body>div, html
             margin-right: initial
             max-width: 920px
           .bonjour
+            position: relative
+            animation: bonjourToFront 2s 4s ease-out forwards
             font-size: 14px
             line-height: 1.8em
             display: block
@@ -218,8 +219,9 @@ body, body>div, html
             @media screen and (min-width: 320px)
               font-size: calc(24px + ((16 * (100vw - 320px)) / 1120))
           .txt
-            font-family: "Source Code Pro", sans-serif
-            font-size: calc(18px + ((4 * (100vw - 320px)) / 1120))
+            //font-family: "Source Code Pro", sans-serif
+            font-size: calc(20px + ((4 * (100vw - 320px)) / 1120))
+            letter-spacing: 1px
             color: $noir
 
         .actionBar
@@ -233,7 +235,7 @@ body, body>div, html
             //letter-spacing: -0.05em
             //word-spacing: -0.38em
             @media screen and (min-width: 320px)
-              font-size: calc(12px + ((2 * (100vw - 320px)) / 320))
+              font-size: calc(16px + ((2 * (100vw - 320px)) / 320))
 
 .mobHeader
   padding-left: 24px
@@ -265,3 +267,9 @@ hr
   @media screen and (max-height: 785px)
     //background: red
     display: none
+
+@keyframes bonjourToFront
+  from
+    z-index: 1
+  to
+    z-index: 2

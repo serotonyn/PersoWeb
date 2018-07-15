@@ -3,8 +3,10 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import MobHeader from '../components/MobHeader'
 import Header from '../components/header'
+import Splash from '../components/Splash'
 import './index.scss'
 import './main.sass'
+import './splash.sass'
 
 const Layout = ({ children, data }) => (
   <div className="root">
@@ -15,6 +17,7 @@ const Layout = ({ children, data }) => (
         { name: 'keywords', content: 'sample, something' },
       ]}
     />
+    <Splash/>
     <MobHeader />
     <div className="layout">
       <Header siteTitle={data.site.siteMetadata.title} />
