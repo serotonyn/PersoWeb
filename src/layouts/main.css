@@ -126,14 +126,14 @@ body, body > div, html {
   text-align: center;
   text-transform: uppercase;
   white-space: nowrap;
-  color: #868686;
+  color: #576D8E;
   border-style: solid;
   border-width: 0px 0px 2px;
   transition: border-color 0.1s, color 0.1s;
   border-color: transparent;
 }
 .fullHeader nav ul li a:hover {
-  color: #444B53;
+  color: #6799B2;
   border-color: #444B53;
 }
 .fullHeader .sousMenu {
