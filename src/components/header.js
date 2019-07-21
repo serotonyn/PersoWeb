@@ -12,8 +12,8 @@ class Header extends React.Component {
           <Link to="/">
             <h1>
               {/*TODO optimize logo svg*/}
-              <svg xmlns="http://www.w3.org/2000/svg" width="274" height="374" viewBox="0 0 274.2 374.91"><title>
-                Asset 1</title>
+              <svg xmlns="http://www.w3.org/2000/svg" width="274" height="374" viewBox="0 0 274.2 374.91">
+                <title>youcef_khaber_logo</title>
                 <g id="Layer_2" data-name="Layer 2">
                   <g id="Layer_1-2" data-name="Layer 1">
                     <polygon fill="#6799B2" points="111.25 0 80.09 0 1 124.97 32.16 124.97 111.25 0" />
@@ -30,10 +30,14 @@ class Header extends React.Component {
               </svg>
             </h1>
           </Link>
-          <hr />
 
           {/*desc*/}
-          <span className="desc"><p>Front-end developer</p><p>Full-stack design specialist</p></span>
+          <span className="desc">
+            <p>Sites Web</p>
+            <p>Applications Mobile</p>
+            <p>Logiciels de bureau</p>
+          </span>
+          <hr />
         </div>
         <nav>
           <ul>
@@ -46,11 +50,18 @@ class Header extends React.Component {
             <li><Link to="/contact">Contact</Link></li>
           </ul>
         </nav>
+            <hr />
         <div className="sousMenu">
           <div className="sousMenuDiv">
-            <p className="PhraseToContact">For business enquiries or casual chatter about design, development,
-                    startup life, remote.</p>
-            <hr />
+            <p className="PhraseToContact">
+              Pour discuter d’affaires ou de conception, de javascript ou de tout ce qui porte sur le développement.
+            </p>
+            <Link className="social" to="">
+              <div>facebook</div>
+            </Link>
+            <p className="PhraseToContact">
+              Pour demander un devis
+            </p>
             <Link className="email" to="">
               <span style={{ direction: "rtl", unicodeBidi: 'bidi-override' }}>moc.liamg@fecuoy1uoyuoy</span>
             </Link>
