@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'gatsby-link'
+// import { navigate } from "gatsby"
 
 class Header extends React.Component {
 
@@ -41,16 +42,16 @@ class Header extends React.Component {
         </div>
         <nav>
           <ul>
-            <li><Link to="/">Accueil</Link></li>
-            <li><Link to="/services">Services</Link></li>
-            <li><Link to="/clients">Clients</Link></li>
-            <li><Link to="/portfolio">Portfolio</Link></li>
-            <li><Link to="/articles">Articles</Link></li>
-            <li><Link to="/notes">Notes</Link></li>
-            <li><Link to="/contact">Contact</Link></li>
+            <li><Link to="/" state={{ fromLink: true }}>Accueil</Link></li>
+            <li><Link to="/services" state={{ fromLink: true }}>Services</Link></li>
+            <li><Link to="/clients" state={{ fromLink: true }}>Clients</Link></li>
+            <li><Link to="/portfolio" state={{ fromLink: true }}>Portfolio</Link></li>
+            <li><Link to="/articles" state={{ fromLink: true }}>Articles</Link></li>
+            <li><Link to="/notes" state={{ fromLink: true }}>Notes</Link></li>
+            <li><Link to="/contact" state={{ fromLink: true }}>Contact</Link></li>
           </ul>
         </nav>
-            <hr />
+        <hr />
         <div className="sousMenu">
           <div className="sousMenuDiv">
             <p className="PhraseToContact">
