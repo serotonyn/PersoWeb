@@ -42,30 +42,34 @@ class Header extends React.Component {
         </div>
         <nav>
           <ul>
-            <li><Link to="/" state={{ fromLink: true }}>Accueil</Link></li>
-            <li><Link to="/services" state={{ fromLink: true }}>Services</Link></li>
-            <li><Link to="/clients" state={{ fromLink: true }}>Clients</Link></li>
-            <li><Link to="/portfolio" state={{ fromLink: true }}>Portfolio</Link></li>
-            <li><Link to="/articles" state={{ fromLink: true }}>Articles</Link></li>
-            <li><Link to="/notes" state={{ fromLink: true }}>Notes</Link></li>
-            <li><Link to="/contact" state={{ fromLink: true }}>Contact</Link></li>
+            <li><Link to="/" state={{ fromLink: true }} activeClassName="active-link">Accueil</Link></li>
+            <li><Link to="/portfolio" state={{ fromLink: true }} activeClassName="active-link">Portfolio</Link></li>
+            <li>Services</li>
+            <li>Clients</li>
+            <li>Articles</li>
+            <li>Notes</li>
+            <li>Contact</li>
           </ul>
         </nav>
-        <hr />
         <div className="sousMenu">
+          <hr />
           <div className="sousMenuDiv">
-            <p className="PhraseToContact">
-              Pour discuter d’affaires ou de conception, de javascript ou de tout ce qui porte sur le développement.
+            <div>
+              <p className="phrase PhraseToContact">
+                Pour discuter d’affaires ou de conception, de javascript ou de tout ce qui porte sur le développement.
             </p>
-            <Link className="social" to="">
-              <div>facebook</div>
-            </Link>
-            <p className="PhraseToContact">
-              Pour demander un devis
+              <Link className="social" to="">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 240 240"><path fill="#3C5A99" d="M248.082 262.307c7.854 0 14.223-6.369 14.223-14.225V18.812c0-7.857-6.368-14.224-14.223-14.224H18.812c-7.857 0-14.224 6.367-14.224 14.224v229.27c0 7.855 6.366 14.225 14.224 14.225h229.27z" /><path fill="#FFF" d="M182.409 262.307v-99.803h33.499l5.016-38.895h-38.515V98.777c0-11.261 3.127-18.935 19.275-18.935l20.596-.009V45.045c-3.562-.474-15.788-1.533-30.012-1.533-29.695 0-50.025 18.126-50.025 51.413v28.684h-33.585v38.895h33.585v99.803h40.166z" /></svg>
+              </Link>
+            </div>
+            <div>
+              <p className="PhraseToContact">
+                Pour demander un devis
             </p>
-            <Link className="email" to="">
-              <span style={{ direction: "rtl", unicodeBidi: 'bidi-override' }}>moc.liamg@fecuoy1uoyuoy</span>
-            </Link>
+              <Link className="email" to="">
+                <span style={{ direction: "rtl", unicodeBidi: 'bidi-override' }}>moc.liamg@fecuoy1uoyuoy</span>
+              </Link>
+            </div>
           </div>
         </div>
       </header>

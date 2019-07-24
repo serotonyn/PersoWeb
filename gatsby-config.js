@@ -29,8 +29,16 @@ module.exports = {
         path: path.join(__dirname, `src`, `assets`, `portfolio_projects`),
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/md`,
+        name: "pages",
+      },
+    },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    `gatsby-transformer-remark`
   ],
 }
 

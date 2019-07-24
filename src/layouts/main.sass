@@ -8,6 +8,8 @@ $medium: #6799B2
 $dark: #576D8E
 $darker: #2f3a4c
 
+$mobHeaderHeight: 60px
+
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro|Ubuntu|Dosis')
 
 *
@@ -55,6 +57,7 @@ body, body>div, html
     display: flex
     flex-direction: column
     flex-basis: 25%
+    justify-content: space-between
     & a h1
       cursor: pointer
       & svg
@@ -71,8 +74,7 @@ body, body>div, html
       margin-bottom: 0.2em
 
     span
-      //font-size: 12px
-      line-height: 1.6em
+      line-height: 1.3em
       display: block
       font-weight: 400
       p
@@ -86,15 +88,30 @@ body, body>div, html
     flex-basis: 50%
     //align-items: center
     ul
+      display: flex
+      flex-direction: column
+      justify-content: center
       list-style: none
       margin: 0
       padding: 0
       li
-        margin: 12px 0 12px 0
-        @media screen and (min-width: 320px)
-          margin-bottom: calc(12px + ((8 * (100vw - 320px)) / 1920))
-        @media screen and (min-width: 320px)
-          margin-top: calc(12px + ((8 * (100vw - 320px)) / 1920))
+        // margin: 12px 0 12px 0
+        // @media screen and (min-width: 320px)
+        //   margin-bottom: calc(12px + ((8 * (100vw - 320px)) / 1920))
+        // @media screen and (min-width: 320px)
+        //   margin-top: calc(12px + ((8 * (100vw - 320px)) / 1920))
+        text-decoration: none
+        //font-size: 12px
+        //line-height: 1.6em
+        font-size: 14px
+        line-height: 1.8em
+        display: inline-block
+        font-family: Lato, sans-serif
+        font-weight: 700
+        letter-spacing: 0.1em
+        text-transform: uppercase
+        white-space: nowrap
+        color: $greySombre
 
         a
           text-decoration: none
@@ -123,16 +140,22 @@ body, body>div, html
     flex-direction: column
     flex-basis: 25%
     justify-content: flex-end
+    hr
+      margin-bottom: 30px
+    div + div
+      margin-top: 30px
     p
       //font-size: 20px
       line-height: 1.4em
       //font-family: Lato, sans-serif
       letter-spacing: 0.02em
-      margin-bottom: 2.8em
+      margin-bottom: 0
       @include police()
       color: $darker
       @media screen and ( max-height: 785px)
         margin-bottom: 1.8em
+    .phrase
+      margin-bottom: 0.5rem
     .email
       font-size: 14px
       //background: blue
@@ -253,7 +276,7 @@ body, body>div, html
   flex-direction: row
   align-items: flex-end
   color: rgba(0, 0, 0, 0.486)
-  height: 60px
+  height: $mobHeaderHeight
   justify-content: space-between
   left: 0px
   position: fixed
@@ -274,9 +297,7 @@ body, body>div, html
 
 
 hr
-  @media screen and (max-height: 785px)
-    //background: red
-    display: none
+  margin-bottom: 0
 
 @keyframes bonjourToFront
   from
@@ -284,9 +305,19 @@ hr
   to
     z-index: 2
 
+.active-link
+  font-size: .8rem !important
+  color: black !important
+.unavailable
+  color: $greySombre !important
+  border: 0 !important
+  cursor: unset !important
+  &:hover
+    color: $greySombre
+    border-color: $noir
 
-.with-left-drawer-spacer
-  position: absolute
-  height: 100vh
-  left: 310px
-  right: 0
+// .with-left-drawer-spacer
+//   position: absolute
+//   height: 100vh
+//   left: 310px
+//   right: 0
