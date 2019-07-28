@@ -1,8 +1,12 @@
 import React from 'react'
 import Layout from '../components/layout';
+import Link from 'gatsby-link'
 
 const IndexPage = ({ location: { state } }) => {
-  const fromLink = state !== null ? state.fromLink : null
+  let fromLink
+  if (state) {
+    fromLink = state.fromLink
+  }
   return (
     <Layout fromLink={fromLink} >
       <div className="page">
@@ -26,8 +30,8 @@ const IndexPage = ({ location: { state } }) => {
               </div>
               <br />
               <div className="actionBar">
-                <a href="">Voir mes réalisations</a>
-                <a href="">Me contacter</a>
+                <Link to="/portfolio" state={{ fromLink: true }}>Voir mes réalisations</Link>
+                <Link to="/" state={{ fromLink: true }}>Me contacter</Link>
               </div>
             </div>
           </div>

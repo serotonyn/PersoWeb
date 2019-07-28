@@ -7,7 +7,7 @@ $bg: 1032px
     // margin-top: $mobHeaderHeight
     max-width: 1280px
     .container
-        margin-top: 60px
+        padding-top: 60px
         margin-left: calc(22px + ((32 * (100vw - 320px)) / 1120))
         margin-right: calc(22px + ((32 * (100vw - 320px)) / 1120))
         & .project + .project
@@ -48,8 +48,9 @@ $bg: 1032px
             .project_image_wrapper
                 // max-width: 600px
                 // margin: 0 auto
-                padding-left: calc(22px + ((32 * (100vw - 320px)) / 1120))
-                flex: 2
+                @media screen and (min-width: $bg)
+                    padding-left: calc(22px + ((32 * (100vw - 320px)) / 1120))
+                    flex: 2
             .project_text
                 flex: 1
                 display: flex

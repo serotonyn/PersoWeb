@@ -12,7 +12,10 @@ const LearnMore = ({ link }) => (
 )
 
 const Portfolio = ({ location: { state } }) => {
-  const fromLink = state !== null ? state.fromLink : null
+  let fromLink
+  if (state) {
+    fromLink = state.fromLink
+  }
 
   const data = useStaticQuery(graphql`
     query MyQuery {

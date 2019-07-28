@@ -8,7 +8,7 @@ $medium: #6799B2
 $dark: #576D8E
 $darker: #2f3a4c
 
-$mobHeaderHeight: 60px
+$mobHeaderHeight: 70px
 
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro|Ubuntu|Dosis')
 
@@ -39,7 +39,7 @@ body, body>div, html
   display: flex
   flex-direction: column
   padding: 22px
-  z-index: 1
+  z-index: 3
   @media screen and (min-width: 320px)
     padding: calc(22px + ((16 * (100vw - 320px)) / 1120))
   @media (min-width: 768px)
@@ -47,17 +47,29 @@ body, body>div, html
     width: 310px
   @media (min-width: 1024px)
     width: 310px
-  // @media (min-width: 1440px)
-  //   width: 320px
-  //   padding: 40px
   @media (max-width: 767px)
-    display: none
+    width: 100%
+    justify-content: center
+    background: rgba(255, 255, 255, .94)
+  &.hide
+    @media (max-width: 767px)
+      display: none
+
+  .divider
+    height: 30px
+    display: flex
+    hr
+      width: 100%
+      margin: 0
+
 
   & .blocLogo
     display: flex
     flex-direction: column
-    flex-basis: 25%
+    flex-basis: 20%
     justify-content: space-between
+    @media (max-width: 767px)
+      display: none
     & a h1
       cursor: pointer
       & svg
@@ -65,7 +77,6 @@ body, body>div, html
         height: 37px
         width: 208px
         display: inline-block
-        //fill: $noir
         max-width: 1em
         margin: 0
         @media (min-width: 768px)
@@ -80,48 +91,56 @@ body, body>div, html
       p
         @include police()
         color: $darker
+    .divider
+      hr
+        align-self: flex-end
 
 
   nav
-    //background: yellow
     display: flex
     flex-basis: 50%
-    //align-items: center
+    font-family: Lato, sans-serif
+    @media (max-width: 767px)
+      align-self: center
+      font-family: Dosis, sans-serif
     ul
+      font-family: inherit
       display: flex
       flex-direction: column
       justify-content: center
       list-style: none
       margin: 0
-      padding: 0
+      padding: 30px 0
+      @media (max-width: 767px)
+        text-align: center
+      .x
+        cursor: pointer
+        font-size: 18px
+        color: $darker
+        @media (min-width: 768px)
+          display: none
       li
-        // margin: 12px 0 12px 0
-        // @media screen and (min-width: 320px)
-        //   margin-bottom: calc(12px + ((8 * (100vw - 320px)) / 1920))
-        // @media screen and (min-width: 320px)
-        //   margin-top: calc(12px + ((8 * (100vw - 320px)) / 1920))
+        font-family: inherit
         text-decoration: none
-        //font-size: 12px
-        //line-height: 1.6em
         font-size: 14px
         line-height: 1.8em
         display: inline-block
-        font-family: Lato, sans-serif
         font-weight: 700
         letter-spacing: 0.1em
         text-transform: uppercase
         white-space: nowrap
         color: $greySombre
-
+        margin-bottom: 0
+        @media (max-width: 767px)
+          font-size: 16px
         a
+          font-family: inherit
           text-decoration: none
-          //font-size: 12px
-          //line-height: 1.6em
           font-size: 14px
           line-height: 1.8em
           cursor: pointer
           display: inline-block
-          font-family: Lato, sans-serif
+          // font-family: Lato, sans-serif
           font-weight: 700
           letter-spacing: 0.1em
           text-align: center
@@ -132,33 +151,35 @@ body, body>div, html
           border-width: 0px 0px 2px
           transition: border-color 0.1s, color 0.1s
           border-color: transparent
+          @media (max-width: 767px)
+            font-size: 16px
           &:hover
             color: $medium
             border-color: $noir
+      li+li
+        margin-top: calc(1.45rem / 2)
+
   .sousMenu
     display: flex
     flex-direction: column
-    flex-basis: 25%
-    justify-content: flex-end
-    hr
-      margin-bottom: 30px
-    div + div
-      margin-top: 30px
+    flex-basis: 30%
+    @media (max-width: 767px)
+      display: none
+    .sousMenuDiv
+      display: flex
+      flex-direction: column
+      justify-content: space-between
+      height: 100%
     p
-      //font-size: 20px
       line-height: 1.4em
-      //font-family: Lato, sans-serif
       letter-spacing: 0.02em
       margin-bottom: 0
       @include police()
       color: $darker
-      @media screen and ( max-height: 785px)
-        margin-bottom: 1.8em
     .phrase
       margin-bottom: 0.5rem
     .email
       font-size: 14px
-      //background: blue
       text-decoration: none
       color: currentColor
       color: $darkgreen
@@ -173,7 +194,6 @@ body, body>div, html
     margin-left: 310px
   @media screen and (min-width: 1440px)
     margin-left: 320px
-  //overflow-y: auto
   @media (max-width: 767px)
     right: 0
     justify-content: center
@@ -238,13 +258,10 @@ body, body>div, html
             display: block
             font-family: "Source Sans Pro", Arial
             font-weight: 500
-            //letter-spacing: -0.02em
-            //word-spacing: -0.18em
             color: $noir
             @media screen and (min-width: 320px)
               font-size: calc(24px + ((16 * (100vw - 320px)) / 1120))
           .txt
-            //font-family: "Source Code Pro", sans-serif
             font-size: calc(20px + ((4 * (100vw - 320px)) / 1120))
             letter-spacing: 1px
             color: $noir
@@ -257,8 +274,6 @@ body, body>div, html
             color: currentColor
             font-family: "Source Sans Pro", Arial
             font-size: 2em
-            //letter-spacing: -0.05em
-            //word-spacing: -0.38em
             border-style: solid
             border-width: 0px 0px 2px
             transition: border-color 0.1s, color 0.1s
@@ -274,7 +289,7 @@ body, body>div, html
   padding-right: 24px
   display: flex
   flex-direction: row
-  align-items: flex-end
+  align-items: center
   color: rgba(0, 0, 0, 0.486)
   height: $mobHeaderHeight
   justify-content: space-between
@@ -282,8 +297,9 @@ body, body>div, html
   position: fixed
   right: 0px
   top: 0px
-  z-index: 3
+  z-index: 4
   background: #fff
+  // background: indianred
   @media screen and (min-width: 320px)
     padding-left: calc(24px + ((16 * (100vw - 320px)) / 1120))
     padding-right: calc(24px + ((16 * (100vw - 320px)) / 1120))
@@ -291,13 +307,11 @@ body, body>div, html
     display: none
   h1
     margin: 0
+    line-height: 1rem
 .MobMenuText
   text-decoration: none
   color: currentColor
-
-
-hr
-  margin-bottom: 0
+  cursor: pointer
 
 @keyframes bonjourToFront
   from
@@ -306,18 +320,5 @@ hr
     z-index: 2
 
 .active-link
-  font-size: .8rem !important
   color: black !important
-.unavailable
-  color: $greySombre !important
-  border: 0 !important
-  cursor: unset !important
-  &:hover
-    color: $greySombre
-    border-color: $noir
-
-// .with-left-drawer-spacer
-//   position: absolute
-//   height: 100vh
-//   left: 310px
-//   right: 0
+  border-color: $noir !important

@@ -1,10 +1,10 @@
 import React from "react";
 import Link from "gatsby-link";
 
-const MobHeader = () => (
+const MobHeader = ({ hideMobMenu }) => (
   <header className="mobHeader">
-    <div>
-      <Link to="" className="MobMenuText">Menu</Link>
+    <div onClick={() => hideMobMenu(isMenuVisible => !isMenuVisible)} className="MobMenuText">
+      {`< Menu >`}
     </div>
     <div>
       <Link to="/">
@@ -13,10 +13,8 @@ const MobHeader = () => (
         </h1>
       </Link>
     </div>
-    <div>
-      <Link to="" className="MobMenuText" >
-        Email
-      </Link>
+    <div to="" className="MobMenuText" >
+      {`< Email >`}
     </div>
   </header>
 );
