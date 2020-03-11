@@ -16,11 +16,10 @@ $mobHeaderHeight: 70px
   box-sizing: border-box
   font-family: 'Dosis', sans-serif
 
-@mixin police()
+@mixin police
   @media screen and (min-width: 320px)
     font-size: calc(15px + ((2 * (100vw - 320px)) / 1120))
     letter-spacing: 0.5px
-
 
 body, body>div, html
   background: #fff
@@ -88,9 +87,9 @@ body, body>div, html
       line-height: 1.3em
       display: block
       font-weight: 400
-      p
-        @include police()
-        color: $darker
+      // p
+      @include police()
+      color: $darker
     .divider
       hr
         align-self: flex-end
@@ -157,7 +156,7 @@ body, body>div, html
             color: $medium
             border-color: $noir
       li+li
-        margin-top: calc(1.45rem / 2)
+            margin-top: calc(1.45rem / 2)
 
   .sousMenu
     display: flex
@@ -299,7 +298,6 @@ body, body>div, html
   top: 0px
   z-index: 4
   background: #fff
-  // background: indianred
   @media screen and (min-width: 320px)
     padding-left: calc(24px + ((16 * (100vw - 320px)) / 1120))
     padding-right: calc(24px + ((16 * (100vw - 320px)) / 1120))
@@ -312,16 +310,18 @@ body, body>div, html
   display: flex
   flex-direction: column
   align-items: center
-  font-size: 22px
   @media screen and (min-width: 768px)
     display: none
   .x
     cursor: pointer
     font-size: 18px
-    font-weight: 700
     color: $darker
     @media (min-width: 768px)
       display: none
+  .copyToClipboard
+    background: transparent
+    border: 0
+    margin: 1em 0
 .MobMenuText
   text-decoration: none
   color: currentColor
