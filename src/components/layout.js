@@ -9,7 +9,7 @@ import '../layouts/main.sass'
 import '../layouts/splash.sass'
 
 export default ({ children, fromLink }) => {
-  const [isMobMenuHidden, hideMobMenu] = useState(true)
+  const [menuOrEmail, showMenuOrEmail] = useState("");
 
   return (
     <StaticQuery
@@ -32,9 +32,9 @@ export default ({ children, fromLink }) => {
             ]}
           />
           {!fromLink && <Splash />}
-          <MobHeader hideMobMenu={hideMobMenu} isMobMenuHidden={isMobMenuHidden} />
-          <div className="layout" style={isMobMenuHidden ? {} : { position: 'fixed' }}>
-            <Header isMobMenuHidden={isMobMenuHidden} hideMobMenu={hideMobMenu} />
+          <MobHeader showMenuOrEmail={showMenuOrEmail} />
+          <div className="layout" style={!menuOrEmail.length ? {} : { position: 'fixed' }}>
+            <Header showMenuOrEmail={showMenuOrEmail} menuOrEmail={menuOrEmail} />
             {children}
           </div>
         </div>

@@ -308,6 +308,20 @@ body, body>div, html
   h1
     margin: 0
     line-height: 1rem
+.emailContainer
+  display: flex
+  flex-direction: column
+  align-items: center
+  font-size: 22px
+  @media screen and (min-width: 768px)
+    display: none
+  .x
+    cursor: pointer
+    font-size: 18px
+    font-weight: 700
+    color: $darker
+    @media (min-width: 768px)
+      display: none
 .MobMenuText
   text-decoration: none
   color: currentColor
