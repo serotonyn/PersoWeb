@@ -3,7 +3,7 @@ import Link from "gatsby-link";
 
 const MobHeader = ({ showMenuOrEmail }) => (
   <header className="mobHeader">
-    <div onClick={() => showMenuOrEmail(menuOrEmail => "menu")} className="MobMenuText">
+    {/* <div onClick={() => showMenuOrEmail(menuOrEmail => "menu")} className="MobMenuText">
       {`< Menu >`}
     </div>
     <div>
@@ -15,7 +15,7 @@ const MobHeader = ({ showMenuOrEmail }) => (
     </div>
     <div to="" className="MobMenuText" onClick={() => showMenuOrEmail(menuOrEmail => "email")}>
       {`< Email >`}
-    </div>
+    </div> */}
   </header>
 );
 

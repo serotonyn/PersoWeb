@@ -1,16 +1,18 @@
-import React from "react"
-import { Helmet } from "react-helmet"
-import Img from "gatsby-image"
+import React from 'react'
+import { Helmet } from 'react-helmet'
+import Img from 'gatsby-image'
+import { graphql } from 'gatsby'
 
 import Layout from '../components/layout'
 import '../layouts/project.sass'
 
 export default function Template({
   data, // this prop will be injected by the GraphQL query we'll write in a bit
-  pageContext: { image }
+  pageContext: { image },
 }) {
-  const { markdownRemark: post
-    , allFile: { nodes: images }
+  const {
+    markdownRemark: post,
+    allFile: { nodes: images },
   } = data // data.markdownRemark holds our post data
 
   return (
@@ -18,26 +20,24 @@ export default function Template({
       <div className="page">
         <div className="container">
           <Helmet title={`Projects - ${post.frontmatter.title}`} />
-          <h1>Projects</h1>
+          <h1>Projectsh</h1>
           <p className="subtitle">{post.frontmatter.title}</p>
           <p className="intro">{post.frontmatter.desc}</p>
           <hr />
 
           <div className="projects_project">
-            <Img
+            {/* <Img
               fluid={images.find(x => x.name === image).childImageSharp.fluid}
               alt={images.find(x => x.name === image).name}
-            />
+            /> */}
             <div
               className="project_story"
               dangerouslySetInnerHTML={{ __html: post.html }}
             />
           </div>
-
-
         </div>
       </div>
-    </Layout >
+    </Layout>
   )
 }
 
@@ -52,14 +52,14 @@ export const pageQuery = graphql`
         desc
       }
     }
-    allFile(filter: {relativePath: {glob: "*"}}){
-      nodes{
+    allFile(filter: { relativePath: { glob: "*" } }) {
+      nodes {
         name
-        childImageSharp{
-          fluid{
-            ...GatsbyImageSharpFluid
-          }
-        }
+        # childImageSharp{
+        #   fluid{
+        #     ...GatsbyImageSharpFluid
+        #   }
+        # }
       }
     }
   }

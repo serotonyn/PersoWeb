@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Link from 'gatsby-link'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 
@@ -8,10 +8,7 @@ const Header = ({ showMenuOrEmail, menuOrEmail }) => {
     console.log(text, result)
   }
   const email = 'youyou1youcef@gmail.com'
-  const reversedEmail = email
-    .split('')
-    .reverse()
-    .join('')
+  const reversedEmail = email.split('').reverse().join('')
   return (
     <header className={!menuOrEmail.length ? 'fullHeader hide' : 'fullHeader'}>
       <div className="blocLogo">
@@ -64,6 +61,7 @@ const Header = ({ showMenuOrEmail, menuOrEmail }) => {
       {menuOrEmail === 'menu' || menuOrEmail === '' ? (
         <nav>
           <ul>
+            {/* eslint-disable-next-line  */}
             <li className="x" onClick={() => showMenuOrEmail('')}>
               X
             </li>
