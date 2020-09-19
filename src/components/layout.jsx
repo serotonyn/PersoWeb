@@ -27,8 +27,11 @@ export default ({ children, fromLink }) => {
           <Helmet
             title={data.site.siteMetadata.title}
             meta={[
-              { name: 'description', content: 'Sample' },
-              { name: 'keywords', content: 'sample, something' },
+              {
+                name: 'description',
+                content: 'Youcef KHABER, software engineer',
+              },
+              { name: 'keywords', content: 'developpeur web alger' },
             ]}
           />
           {!fromLink && <Splash />}
