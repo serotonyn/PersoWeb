@@ -1,162 +1,150 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import { CopyToClipboard } from 'react-copy-to-clipboard'
+import CopyToClipboard from './CopyToClipboard'
+import Logo from '../assets/logo.svg'
+import '../layouts/header.sass'
 
-const Header = ({ showMenuOrEmail, menuOrEmail }) => {
-  // const [copyValue, onCopyValue] = useState(false);
-  const onCopyValue = (text, result) => {
-    console.log(text, result)
-  }
-  const email = 'youyou1youcef@gmail.com'
-  const reversedEmail = email.split('').reverse().join('')
-  return (
-    <header className={!menuOrEmail.length ? 'fullHeader hide' : 'fullHeader'}>
-      <div className="blocLogo">
-        <h1>
-          {/*TODO optimize logo svg*/}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="44"
-            height="44"
-            viewBox="0 0 274.2 374.91"
+const BlocLogo = () => (
+  <div className="blocLogo">
+    <h1>
+      <img src={Logo} alt="khaber youcef" />
+    </h1>
+
+    <span className="desc">
+      <p>Sites Web</p>
+      <p>Applications Mobile</p>
+      <p>Logiciels de bureau</p>
+    </span>
+    <div className="divider">
+      <hr />
+    </div>
+  </div>
+)
+
+const MenuOrEmail = ({
+  showMenuOrEmail,
+  reversedEmail,
+  menuOrEmail,
+  email,
+}) => {
+  return menuOrEmail === 'menu' || menuOrEmail === '' ? (
+    <nav>
+      <ul>
+        <li>
+          <button
+            type="button"
+            className="x"
+            onClick={() => showMenuOrEmail('')}
           >
-            <title>youcef_khaber_logo</title>
-            <g id="Layer_2" data-name="Layer 2">
-              <g id="Layer_1-2" data-name="Layer 1">
-                <polygon
-                  fill="#6799B2"
-                  points="111.25 0 80.09 0 1 124.97 32.16 124.97 111.25 0"
-                />
-                <polygon
-                  fill="#6799B2"
-                  points="110.25 249.94 79.09 249.94 0 124.97 31.16 124.97 110.25 249.94"
-                />
-                <polygon
-                  fill="#576D8E"
-                  points="115.6 124.97 146.76 124.97 225.85 249.94 194.69 249.94 115.6 124.97"
-                />
-                <polygon
-                  fill="#576D8E"
-                  points="115.6 374.91 146.76 374.91 225.85 249.94 194.69 249.94 115.6 374.91"
-                />
-                <polygon
-                  fill="#65BEC2"
-                  points="164.05 249.94 195.21 249.94 274.2 124.97 243.14 124.97 164.05 249.94"
-                />
-              </g>
-            </g>
-          </svg>
-        </h1>
-
-        {/*desc*/}
-        <span className="desc">
-          <p>Sites Web</p>
-          <p>Applications Mobile</p>
-          <p>Logiciels de bureau</p>
-        </span>
-        <div className="divider">
-          <hr />
-        </div>
-      </div>
-      {menuOrEmail === 'menu' || menuOrEmail === '' ? (
-        <nav>
-          <ul>
-            {/* eslint-disable-next-line  */}
-            <li className="x" onClick={() => showMenuOrEmail('')}>
-              X
-            </li>
-            <li>
-              <Link
-                to="/"
-                state={{ fromLink: true }}
-                activeClassName="active-link"
-              >
-                Accueil
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/portfolio"
-                state={{ fromLink: true }}
-                activeClassName="active-link"
-              >
-                Portfolio
-              </Link>
-            </li>
-            <li>Services</li>
-            <li>Clients</li>
-            <li>Articles</li>
-            <li>Notes</li>
-            <li>Contact</li>
-          </ul>
-        </nav>
-      ) : (
-        <div className="emailContainer">
-          <p className="x" onClick={() => showMenuOrEmail('')}>
             X
-          </p>
-          <span style={{ direction: 'rtl', unicodeBidi: 'bidi-override' }}>
-            {reversedEmail}
-          </span>
-          <CopyToClipboard onCopy={onCopyValue} text={email}>
-            <button className="copyToClipboard">
-              <svg
-                className="octicon octicon-clippy"
-                viewBox="0 0 14 16"
-                version="1.1"
-                width="14"
-                height="16"
-                aria-hidden="true"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M2 13h4v1H2v-1zm5-6H2v1h5V7zm2 3V8l-3 3 3 3v-2h5v-2H9zM4.5 9H2v1h2.5V9zM2 12h2.5v-1H2v1zm9 1h1v2c-.02.28-.11.52-.3.7-.19.18-.42.28-.7.3H1c-.55 0-1-.45-1-1V4c0-.55.45-1 1-1h3c0-1.11.89-2 2-2 1.11 0 2 .89 2 2h3c.55 0 1 .45 1 1v5h-1V6H1v9h10v-2zM2 5h8c0-.55-.45-1-1-1H8c-.55 0-1-.45-1-1s-.45-1-1-1-1 .45-1 1-.45 1-1 1H3c-.55 0-1 .45-1 1z"
-                ></path>
-              </svg>
-            </button>
-          </CopyToClipboard>
-        </div>
-      )}
-      <div className="sousMenu">
-        <div className="divider">
-          <hr />
-        </div>
-        <div className="sousMenuDiv">
-          <div>
-            <p className="phrase PhraseToContact">
-              Pour discuter d’affaires ou de conception, de javascript ou de
-              tout ce qui porte sur le développement.
-            </p>
-            <Link className="social" to="">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 240 240"
-              >
-                <path
-                  fill="#3C5A99"
-                  d="M248.082 262.307c7.854 0 14.223-6.369 14.223-14.225V18.812c0-7.857-6.368-14.224-14.223-14.224H18.812c-7.857 0-14.224 6.367-14.224 14.224v229.27c0 7.855 6.366 14.225 14.224 14.225h229.27z"
-                />
-                <path
-                  fill="#FFF"
-                  d="M182.409 262.307v-99.803h33.499l5.016-38.895h-38.515V98.777c0-11.261 3.127-18.935 19.275-18.935l20.596-.009V45.045c-3.562-.474-15.788-1.533-30.012-1.533-29.695 0-50.025 18.126-50.025 51.413v28.684h-33.585v38.895h33.585v99.803h40.166z"
-                />
-              </svg>
-            </Link>
-          </div>
-          <div>
-            <p className="PhraseToContact">Pour demander un devis</p>
-            <Link className="email" to="">
-              <span style={{ direction: 'rtl', unicodeBidi: 'bidi-override' }}>
-                {reversedEmail}
-              </span>
-            </Link>
-          </div>
-        </div>
-      </div>
-    </header>
+          </button>
+        </li>
+        <li>
+          <Link
+            tabIndex={0}
+            to="/"
+            state={{ fromLink: true }}
+            activeClassName="active-link"
+          >
+            Accueil
+          </Link>
+        </li>
+        <li>
+          <Link
+            tabIndex={0}
+            to="/portfolio"
+            state={{ fromLink: true }}
+            activeClassName="active-link"
+          >
+            Portfolio
+          </Link>
+        </li>
+        <li>Services</li>
+        <li>Clients</li>
+        <li>Articles</li>
+        <li>Notes</li>
+        <li>
+          <Link
+            tabIndex={0}
+            to="/contact"
+            state={{ fromLink: true }}
+            activeClassName="active-link"
+          >
+            Contact
+          </Link>
+        </li>
+      </ul>
+    </nav>
+  ) : (
+    <div className="emailContainer">
+      <button type="button" className="x" onClick={() => showMenuOrEmail('')}>
+        X
+      </button>
+      <span style={{ direction: 'rtl', unicodeBidi: 'bidi-override' }}>
+        {reversedEmail}
+      </span>
+      <CopyToClipboard email={email} />
+    </div>
   )
 }
 
-export default Header
+const SousMenu = ({ reversedEmail }) => (
+  <div className="sousMenu">
+    <div className="divider">
+      <hr />
+    </div>
+    <div className="sousMenuDiv">
+      <div>
+        <p className="phrase PhraseToContact">
+          Pour discuter d&rsquo;affaires ou de conception, de javascript ou de
+          tout ce qui porte sur le développement.
+        </p>
+        <button className="social" type="button">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 240 240"
+          >
+            <path
+              fill="#3C5A99"
+              d="M248.082 262.307c7.854 0 14.223-6.369 14.223-14.225V18.812c0-7.857-6.368-14.224-14.223-14.224H18.812c-7.857 0-14.224 6.367-14.224 14.224v229.27c0 7.855 6.366 14.225 14.224 14.225h229.27z"
+            />
+            <path
+              fill="#FFF"
+              d="M182.409 262.307v-99.803h33.499l5.016-38.895h-38.515V98.777c0-11.261 3.127-18.935 19.275-18.935l20.596-.009V45.045c-3.562-.474-15.788-1.533-30.012-1.533-29.695 0-50.025 18.126-50.025 51.413v28.684h-33.585v38.895h33.585v99.803h40.166z"
+            />
+          </svg>
+        </button>
+      </div>
+      <div>
+        <p className="PhraseToContact">Pour demander un devis</p>
+        <button type="button" className="email">
+          <span style={{ direction: 'rtl', unicodeBidi: 'bidi-override' }}>
+            {reversedEmail}
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+)
+
+export default ({ showMenuOrEmail, menuOrEmail }) => {
+  const email = 'khaberyoucef@outlook.com'
+  const reversedEmail = email.split('').reverse().join('')
+
+  return (
+    <header className={!menuOrEmail.length ? 'fullHeader hide' : 'fullHeader'}>
+      <BlocLogo />
+
+      <MenuOrEmail
+        showMenuOrEmail={showMenuOrEmail}
+        reversedEmail={reversedEmail}
+        menuOrEmail={menuOrEmail}
+        email={email}
+      />
+
+      <SousMenu reversedEmail={reversedEmail} />
+    </header>
+  )
+}

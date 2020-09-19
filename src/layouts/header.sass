@@ -1,0 +1,82 @@
+$darker: #2f3a4c
+$grey: #e8e8e8
+
+.fullHeader
+  background: $grey
+  width: 33%
+  position: fixed
+  top: 0
+  left: 0
+  bottom: 0
+  display: flex
+  flex-direction: column
+  padding: 22px
+  z-index: 3
+  @media screen and (min-width: 320px)
+    padding: calc(22px + ((16 * (100vw - 320px)) / 1120))
+  @media (min-width: 768px)
+    display: flex
+    width: 310px
+  @media (min-width: 1024px)
+    width: 310px
+  @media (max-width: 767px)
+    width: 100%
+    justify-content: center
+    background: rgba(255, 255, 255, .94)
+  &.hide
+    @media (max-width: 767px)
+      display: none
+  .divider
+    height: 30px
+    display: flex
+    hr
+      width: 100%
+      margin: 0
+
+.mobHeader
+  padding-left: 24px
+  padding-right: 24px
+  display: flex
+  flex-direction: row
+  align-items: center
+  color: rgba(0, 0, 0, 0.486)
+  height: 70px
+  justify-content: space-between
+  left: 0px
+  position: fixed
+  right: 0px
+  top: 0px
+  z-index: 4
+  background: #fff
+  @media screen and (min-width: 320px)
+    padding-left: calc(24px + ((16 * (100vw - 320px)) / 1120))
+    padding-right: calc(24px + ((16 * (100vw - 320px)) / 1120))
+  @media screen and (min-width: 768px)
+    display: none
+  h1
+    margin: 0
+    line-height: 1rem
+    img
+      margin: 0
+
+.emailContainer
+  display: flex
+  flex-direction: column
+  align-items: center
+  @media screen and (min-width: 768px)
+    display: none
+  .x
+    cursor: pointer
+    font-size: 18px
+    font-weight: 700
+    color: $darker
+    @media (min-width: 768px)
+      display: none
+  .copyToClipboard
+    background: transparent
+    border: 0
+    margin: 1em 0
+.MobMenuText
+  text-decoration: none
+  color: currentColor
+  cursor: pointer

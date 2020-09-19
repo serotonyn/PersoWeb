@@ -10,7 +10,7 @@ const path = require('path')
 
 exports.createPages = ({ actions, graphql }) => {
     const { createPage } = actions
-    const blogPostTemplate = path.resolve(`src/templates/project.js`)
+    const blogPostTemplate = path.resolve(`src/templates/project.jsx`)
 
     return graphql(`
     {
@@ -33,7 +33,6 @@ exports.createPages = ({ actions, graphql }) => {
             return Promise.reject(result.errors)
         }
         result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-            console.log('loginnnnnnnnnn', JSON.stringify(node.frontmatter.path))
             createPage({
                 path: node.frontmatter.path,
                 component: blogPostTemplate,

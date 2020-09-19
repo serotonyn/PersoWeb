@@ -1,16 +1,8 @@
 import React from 'react'
-import Layout from '../components/layout'
 import { useStaticQuery, graphql } from 'gatsby'
-import Img from 'gatsby-image'
-import '../layouts/portfolio.sass'
-
-import { navigate } from 'gatsby'
-
-const LearnMore = ({ link }) => (
-  <span className="project_learnMore" onClick={() => navigate(link)}>
-    En savoir plus
-  </span>
-)
+import Layout from '../components/layout'
+import '../layouts/portfolioPage.sass'
+import Project from '../components/Project'
 
 const Portfolio = ({ location: { state } }) => {
   let fromLink
@@ -20,7 +12,20 @@ const Portfolio = ({ location: { state } }) => {
 
   const data = useStaticQuery(graphql`
     query MyQuery {
-      allFile(filter: { relativePath: { glob: "*" } }) {
+      allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
+        nodes {
+          frontmatter {
+            title
+            desc
+            image
+            path
+            website
+          }
+        }
+      }
+      allFile(
+        filter: { relativePath: { glob: "*" }, name: { glob: "project_*" } }
+      ) {
         nodes {
           name
           childImageSharp {
@@ -33,7 +38,7 @@ const Portfolio = ({ location: { state } }) => {
     }
   `)
   const images = data.allFile.nodes
-  console.log(images.find((x) => x.name === 'project_bytesnime'))
+  const mds = data.allMarkdownRemark.nodes
 
   return (
     <Layout fromLink={fromLink}>
@@ -49,111 +54,20 @@ const Portfolio = ({ location: { state } }) => {
           <hr />
 
           <div className="projects">
-            <div className="project">
-              {/* <div className="project_image_wrapper">
-                <Img
-                  fluid={
-                    images.find((x) => x.name === 'project_bytesnime')
-                      .childImageSharp.fluid
+            {mds.map(
+              ({ frontmatter: { title, desc, image, path, website } }) => (
+                <Project
+                  key={title}
+                  title={title}
+                  desc={desc}
+                  childImageSharp={
+                    images.find((x) => x.name === image).childImageSharp.fluid
                   }
-                  alt={images.find((x) => x.name === 'project_bytesnime').name}
+                  path={path}
+                  website={website}
                 />
-              </div> */}
-              <div className="project_text">
-                <h2 className="project_name">Multi-Topics-Chat</h2>
-                <p className="project_desc">
-                  Un concept d'une application web de messagerie instantanée qui
-                  permet d'associer les messages envoyés a des sujets de
-                  conversations.
-                </p>
-                <LearnMore link="/projects/bytesnime" />
-              </div>
-            </div>
-
-            <div className="project">
-              <div className="project_image_wrapper">
-                <Img
-                  fluid={
-                    images.find((x) => x.name === 'project_bytesnime')
-                      .childImageSharp.fluid
-                  }
-                  alt={images.find((x) => x.name === 'project_bytesnime').name}
-                />
-              </div>
-              <div className="project_text">
-                <h2 className="project_name">Bytesnime.com</h2>
-                <p className="project_desc">
-                  Un site commercial avec panier d’achat au design flat,
-                  ergonomique et simple d’utilisation.
-                </p>
-                <LearnMore link="/projects/bytesnime" />
-              </div>
-            </div>
-
-            <div className="project">
-              <div className="project_image_wrapper">
-                <Img
-                  fluid={
-                    images.find((x) => x.name === 'project_rayat')
-                      .childImageSharp.fluid
-                  }
-                  alt={images.find((x) => x.name === 'project_rayat').name}
-                />
-              </div>
-              <div className="project_text">
-                <h2 className="project_name">Rayat</h2>
-                <p className="project_desc">
-                  Rayat est un jeu quiz de type Qcm qui vise tout autant un
-                  public jeune qu’un public moins jeune.
-                </p>
-                <LearnMore link="/projects/rayat" />
-              </div>
-            </div>
-
-            <div className="project">
-              <div className="project_image_wrapper">
-                <Img
-                  fluid={
-                    images.find((x) => x.name === 'project_androgym')
-                      .childImageSharp.fluid
-                  }
-                  alt={images.find((x) => x.name === 'project_androgym').name}
-                />
-              </div>
-              <div className="project_text">
-                <h2 className="project_name">AndroGym</h2>
-                <p className="project_desc">
-                  Un logiciel compatible Windows, MacOs et Linux pour la gestion
-                  de membres de gym.
-                </p>
-                <LearnMore />
-              </div>
-            </div>
-
-            <div className="project">
-              <div className="project_image_wrapper">
-                <Img
-                  fluid={
-                    images.find(
-                      (x) => x.name === 'project_youtube-search-comments'
-                    ).childImageSharp.fluid
-                  }
-                  alt={
-                    images.find(
-                      (x) => x.name === 'project_youtube-search-comments'
-                    ).name
-                  }
-                />
-              </div>
-              <div className="project_text">
-                <h2 className="project_name">Search-Youtube-Comments</h2>
-                <p className="project_desc">
-                  Une extension chrome pour filter les commentaires youtube à
-                  l’aide de mots-clés.
-                </p>
-                <LearnMore />
-              </div>
-            </div>
+              )
+            )}
           </div>
         </div>
       </div>

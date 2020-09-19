@@ -1,0 +1,10 @@
+{
+  "extends": ["airbnb", "prettier"],
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": ["error"],
+    "jsx-a11y/click-events-have-key-events": 0,
+    "linebreak-style": "off",
+    "react/prop-types": 0
+  }
+}

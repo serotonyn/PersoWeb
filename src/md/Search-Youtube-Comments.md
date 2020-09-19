@@ -1,9 +1,9 @@
 ---
-path: '/projects/rayat'
+path: '/projects/search-youtube-comments'
 date: 2017-07-12T17:12:33.962Z
-title: 'Rayat'
-desc: 'Un site commercial avec panier d’achat au design flat, ergonomique et simple d’utilisation.'
-image: 'project_rayat'
+title: 'Search Youtube Comments'
+desc: 'Une extension chrome pour filter les commentaires youtube à l’aide de mots-clés.'
+image: 'project_youtube-search-comments'
 website: ''
 ---
 

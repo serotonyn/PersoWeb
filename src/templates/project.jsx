@@ -4,7 +4,7 @@ import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
 
 import Layout from '../components/layout'
-import '../layouts/project.sass'
+import '../layouts/projectPage.sass'
 
 export default function Template({
   data, // this prop will be injected by the GraphQL query we'll write in a bit
@@ -16,20 +16,20 @@ export default function Template({
   } = data // data.markdownRemark holds our post data
 
   return (
-    <Layout fromLink={true}>
+    <Layout fromLink>
       <div className="page">
         <div className="container">
           <Helmet title={`Projects - ${post.frontmatter.title}`} />
-          <h1>Projectsh</h1>
+          <h1>Projects</h1>
           <p className="subtitle">{post.frontmatter.title}</p>
           <p className="intro">{post.frontmatter.desc}</p>
           <hr />
 
-          <div className="projects_project">
-            {/* <Img
-              fluid={images.find(x => x.name === image).childImageSharp.fluid}
-              alt={images.find(x => x.name === image).name}
-            /> */}
+          <div className="projects_project" style={{ maxWidth: 690 }}>
+            <Img
+              fluid={images.find((x) => x.name === image).childImageSharp.fluid}
+              alt={images.find((x) => x.name === image).name}
+            />
             <div
               className="project_story"
               dangerouslySetInnerHTML={{ __html: post.html }}
@@ -52,14 +52,16 @@ export const pageQuery = graphql`
         desc
       }
     }
-    allFile(filter: { relativePath: { glob: "*" } }) {
+    allFile(
+      filter: { relativePath: { glob: "*" }, name: { glob: "project_*" } }
+    ) {
       nodes {
         name
-        # childImageSharp{
-        #   fluid{
-        #     ...GatsbyImageSharpFluid
-        #   }
-        # }
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
       }
     }
   }

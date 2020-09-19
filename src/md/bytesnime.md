@@ -1,10 +1,12 @@
 ---
-path: "/projects/bytesnime"
+path: '/projects/bytesnime'
 date: 2017-07-12T17:12:33.962Z
-title: "Bytesnime"
-desc: "Un site commercial avec panier d’achat au design flat, ergonomique et simple d’utilisation."
-image: "project_bytesnime"
+title: 'Bytesnime'
+desc: 'Un site commercial avec panier d’achat au design flat, ergonomique et simple d’utilisation.'
+image: 'project_bytesnime'
+website: ''
 ---
+
 The goal of the entire endeavour was to create a more engaging and inclusive storytelling experience around the interview format.
 
 We worked under the premise that we can achieve that by letting the readers directly interact with the characters at the heart of a story. All through one-on-one message exchanges. Our work on InterviewJS involved creation of four different packages, each living its own life in a dedicated environment:

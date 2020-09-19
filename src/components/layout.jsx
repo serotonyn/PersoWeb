@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { Helmet } from 'react-helmet'
+import { StaticQuery, graphql } from 'gatsby'
 import MobHeader from './MobHeader'
 import Header from './header'
 import Splash from './Splash'
-import { StaticQuery, graphql } from 'gatsby'
 import '../layouts/index.scss'
-import '../layouts/main.sass'
-import '../layouts/splash.sass'
+import '../layouts/indexPage.sass'
+import '../layouts/layout.sass'
 
 export default ({ children, fromLink }) => {
   const [menuOrEmail, showMenuOrEmail] = useState('')
@@ -22,7 +22,7 @@ export default ({ children, fromLink }) => {
           }
         }
       `}
-      render={data => (
+      render={(data) => (
         <div className="root">
           <Helmet
             title={data.site.siteMetadata.title}

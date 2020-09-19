@@ -1,9 +1,9 @@
 ---
-path: '/projects/rayat'
-date: 2017-07-12T17:12:33.962Z
-title: 'Rayat'
-desc: 'Un site commercial avec panier d’achat au design flat, ergonomique et simple d’utilisation.'
-image: 'project_rayat'
+path: '/projects/androgym'
+date: 2017-09-18T17:12:33.962Z
+title: 'AndroGym'
+desc: ' Un logiciel compatible Windows, MacOs et Linux pour la gestion de membres de gym.'
+image: 'project_androgym'
 website: ''
 ---
 
